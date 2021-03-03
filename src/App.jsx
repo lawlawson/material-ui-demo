@@ -1,11 +1,14 @@
 import React from 'react'
-import {Typography, AppBar, Button, CardActions, CardContent, Card, CardMedia, CssBaseline, Grid, Toolbar, Container, } from '@material-ui/core'
+import {Typography, AppBar, Button, CardActions, CardContent, Card, CardMedia, CssBaseline, Grid, Toolbar, Container,} from '@material-ui/core'
 import {PhotoCamera} from '@material-ui/icons'
 
 import useStyles from "./styles";
 
+const cards = [1,2,3,4,5,6,7,8,9]
+
 const App = () => {
   const classes = useStyles();
+
 
   return (
     <>
@@ -45,10 +48,11 @@ const App = () => {
         </div>
         <Container className={classes.cardGrid} maxWidth={"md"}>
           <Grid container spacing={4}>
-            <Grid item>
-              <Card className={classes.card}>
-                <CardMedia className={classes.cardMedia}
-                           image={"https://source.unsplash.com/random"}
+            {cards.map((card) => (
+              <Grid item key={card} xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia className={classes.cardMedia}
+                             image={"https://images.unsplash.com/photo-1485550409059-9afb054cada4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"}
                              title="image title"/>
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant={"h5"}>
@@ -62,11 +66,20 @@ const App = () => {
                     <Button size={"small"} color={"primary"}>View</Button>
                     <Button size={"small"} color={"primary"}>Edit</Button>
                   </CardActions>
-              </Card>
-            </Grid>
+                </Card>
+              </Grid>
+            ))}
           </Grid>
         </Container>
       </main>
+      <footer className={classes.footer}>
+        <Typography variant={"h6"} align={"center"} gutterBottom>
+          Footer
+        </Typography>
+        <Typography variant={"subtitle1"} align={"center"} color={"textSecondary"}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </Typography>
+      </footer>
     </>
   )
 }
