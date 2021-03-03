@@ -1,5 +1,5 @@
 import React from 'react'
-import {Typography, AppBar, Button, CardACtions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container} from '@material-ui/core'
+import {Typography, AppBar, Button, CardActions, CardContent, Card, CardMedia, CssBaseline, Grid, Toolbar, Container, } from '@material-ui/core'
 import {PhotoCamera} from '@material-ui/icons'
 
 import useStyles from "./styles";
@@ -7,7 +7,7 @@ import useStyles from "./styles";
 const App = () => {
   const classes = useStyles();
 
-  return(
+  return (
     <>
       <CssBaseline />
       <AppBar position={"relative"}>
@@ -27,8 +27,7 @@ const App = () => {
             <Typography variant={"h5"} align={"center"} color={"textSecondary"} paragraph>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis consequuntur culpa ea id magni qui, sed unde vero voluptas!
             </Typography>
-          </Container>
-        </div>
+          <div className={classes.buttons}>
         <Grid container spacing={2} justify={"center"}>
           <Grid item>
             <Button variant={"contained"} color={"primary"}>
@@ -41,6 +40,32 @@ const App = () => {
             </Button>
           </Grid>
         </Grid>
+          </div>
+          </Container>
+        </div>
+        <Container className={classes.cardGrid} maxWidth={"md"}>
+          <Grid container spacing={4}>
+            <Grid item>
+              <Card className={classes.card}>
+                <CardMedia className={classes.cardMedia}
+                           image={"https://source.unsplash.com/random"}
+                             title="image title"/>
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant={"h5"}>
+                      Heading
+                    </Typography>
+                    <Typography>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab deleniti numquam porro quisquam sequi? Voluptate!
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size={"small"} color={"primary"}>View</Button>
+                    <Button size={"small"} color={"primary"}>Edit</Button>
+                  </CardActions>
+              </Card>
+            </Grid>
+          </Grid>
+        </Container>
       </main>
     </>
   )
